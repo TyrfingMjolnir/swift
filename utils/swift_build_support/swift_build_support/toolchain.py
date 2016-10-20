@@ -161,7 +161,9 @@ class FreeBSD(GenericUnix):
 
 
 class SunOS(Linux):
-    # Currently, Cygwin is considered as the same as Linux.
+    # ./swiftC/utils/build-script: fatal error: can't find clang (please install clang-3.5 or a later version)
+    # Larry can go sailing. This needs a clang 3.8 port or newer for illumos
+    # https://bugs.swift.org/browse/SR-2945?filter=-2
     pass
 
 class Cygwin(Linux):
