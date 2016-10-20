@@ -122,7 +122,7 @@ class StdlibDeploymentTarget(object):
 
     FreeBSD = Platform("freebsd", archs=["x86_64"])
 
-    SunOS = Platform("sunos", archs=["x86_64"])
+    SunOS = Platform("sunos", archs=["i86pc"])
     
     Cygwin = Platform("cygwin", archs=["x86_64"])
 
@@ -181,8 +181,8 @@ class StdlibDeploymentTarget(object):
                 return StdlibDeploymentTarget.FreeBSD.x86_64
 
         elif system == 'SunOS':
-            if machine == 'amd64':
-                return StdlibDeploymentTarget.SunOS.x86_64
+            if machine == 'i86pc':
+                return StdlibDeploymentTarget.SunOS.i86pc
 
         elif system == 'CYGWIN_NT-10.0':
             if machine == 'x86_64':
