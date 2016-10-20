@@ -122,6 +122,8 @@ class StdlibDeploymentTarget(object):
 
     FreeBSD = Platform("freebsd", archs=["x86_64"])
 
+    SunOS = Platform("sunos", archs=["x86_64"])
+    
     Cygwin = Platform("cygwin", archs=["x86_64"])
 
     Android = Platform("android", archs=["armv7"])
@@ -134,6 +136,7 @@ class StdlibDeploymentTarget(object):
         AppleWatch, AppleWatchSimulator,
         Linux,
         FreeBSD,
+        SunOS,
         Cygwin,
         Android]
 
@@ -177,7 +180,11 @@ class StdlibDeploymentTarget(object):
             if machine == 'amd64':
                 return StdlibDeploymentTarget.FreeBSD.x86_64
 
-        elif system == 'CYGWIN_NT-10.0':
+        elif system == 'SunOS':
+            if machine == 'amd64':
+                return StdlibDeploymentTarget.SunOS.x86_64
+
+            elif system == 'CYGWIN_NT-10.0':
             if machine == 'x86_64':
                 return StdlibDeploymentTarget.Cygwin.x86_64
 
