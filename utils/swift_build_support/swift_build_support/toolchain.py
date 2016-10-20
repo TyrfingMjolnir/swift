@@ -160,6 +160,10 @@ class FreeBSD(GenericUnix):
         return int(out)
 
 
+class SunOS(Linux):
+    # Currently, Cygwin is considered as the same as Linux.
+    pass
+
 class Cygwin(Linux):
     # Currently, Cygwin is considered as the same as Linux.
     pass
@@ -171,6 +175,8 @@ def host_toolchain(**kwargs):
         return MacOSX(kwargs.pop('xcrun_toolchain', 'default'))
     elif sys == 'Linux':
         return Linux()
+    elif sys == 'SunOS':
+        return SunOS()
     elif sys == 'FreeBSD':
         return FreeBSD()
     elif sys.startswith('CYGWIN'):
